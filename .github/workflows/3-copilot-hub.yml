@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - id: get_step
-        run: echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+        run: echo "current_step=$(cat .github/steps/-step.txt)" >> $GITHUB_OUTPUT
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
 
@@ -69,3 +69,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 3
           to_step: 4
+          step_file_path: ".github/steps/-step.txt"
